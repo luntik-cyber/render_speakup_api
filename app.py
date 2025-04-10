@@ -4,8 +4,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 cors = CORS(app)
 
-usernames = ["oto", "speak up", "Lasha Gorgiladze", "Oto", "Oto Dzorelashvili", "Mate"]
-passwords = ["Shazam12@", "mevaryle", "elenethebest", "Mate123", "12345677"]
+usernames = ["Oto", "Mate", "elene"]
+passwords = ["Shazam12@", "Mate123", "eleneadmin"]
 
 firebase_config = {
     "apiKey": "AIzaSyD93WyvlqmBo_CkChloCabFARucdoDILIA",
