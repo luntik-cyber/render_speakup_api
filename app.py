@@ -4,8 +4,11 @@ from flask_cors import CORS
 app = Flask(__name__)
 cors = CORS(app)
 
-usernames = ["Oto", "Mate", "elene"]
-passwords = ["Shazam12@", "Mate123", "eleneadmin"]
+logins = {
+    "Oto": "Shazam12@",
+    "Mate": "Mate123",
+    "elene": "eleneadmin"
+}
 
 firebase_config = {
     "apiKey": "AIzaSyD93WyvlqmBo_CkChloCabFARucdoDILIA",
@@ -19,9 +22,8 @@ firebase_config = {
 
 @app.route("/getConfig/<input_username>/<input_password>", methods=["GET"])
 def give_config(input_username, input_password):
-    if input_username in usernames and input_password in passwords:
+    if input_password == logins[input_username]:
         return jsonify(firebase_config)
-    
     return jsonify({"error": "Unauthorized"}), 401
 
 if __name__ == "__main__":
